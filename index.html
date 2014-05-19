@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1024">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>JS Introduction | Bjarke Walling</title>
+
+  <meta name="description" content="JavaScript introduction for already programmers">
+  <meta name="author" content="Bjarke Walling">
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet">
+  <link href="styles/js-introduction.css" rel="stylesheet">
+
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+
+  <div id="js" class="step" data-x="2600" data-y="-3500" data-scale="8">
+    <h1>JS</h1>
+  </div>
+
+  <div id="author" class="step" data-x="-800" data-y="-3500" data-scale="2">
+    <p class="name">
+      Bjarke Walling
+    </p>
+    <p class="contact">
+      <a class="link" href="https://www.linkedin.com/in/bjarkewalling" target="_blank" title="Bjarke Walling's LinkedIn profile">LinkedIn</a> ;
+      <a class="link" href="https://twitter.com/walling" target="_blank" title="Bjarke Walling's Twitter profile">@walling</a><br>
+      <a class="link" href="mailto:bjarke@contingent.dk" target="_blank" title="Bjarke Walling's email">bjarke@contingent.dk</a><br><br>
+      <a class="link" href="https://github.com/walling" target="_blank" title="Bjarke Walling's GitHub profile">GitHub: walling</a><br>
+      <a class="link" href="http://node-modules.com/search?q=%40walling" target="_blank" title="Bjarke Walling's NPM modules">NPM modules</a>
+    </p>
+  </div>
+
+  <div id="javascript-the-good-parts" class="step" data-x="-400" data-y="-4900" data-scale="3">
+    <a href="http://shop.oreilly.com/product/9780596517748.do" target="_blank"><img src="images/goodparts.jpg" alt="JavaScript: The Good Parts by Douglas Crockford, O'Reilly &amp; Yahoo Press"></a>
+  </div>
+
+  <div id="values" class="step" data-x="1250" data-y="-3000" data-scale="4">
+    <p>Values</p>
+  </div>
+
+  <div id="integers" class="step" data-x="-1000" data-y="-2500">
+    <p><span class="lit">1</span> ; <span class="lit">2</span> ; <span class="lit">3</span></p>
+  </div>
+
+  <div id="floats" class="step" data-x="-1000" data-y="-2400">
+    <p><span class="lit">25.17</span>  ;  <span class="lit">3.1415</span>  ;  <span class="lit">1.03e11</span></p>
+  </div>
+
+  <div id="nan" class="step" data-x="-1000" data-y="-2300">
+    <p>NaN <span class="comment">// global constant: Not a Number</span</p>
+  </div>
+
+  <div id="checking-nan" class="step" data-x="-1000" data-y="-2100">
+    <p>
+      <span class="tab-aligned"><span class="func">isNaN</span>(<span class="lit">17</span>)</span> <span class="comment">// false</span><br>
+      <span class="tab-aligned"><span class="func">isNaN</span>(NaN)</span> <span class="comment">// true</span>
+    </p>
+  </div>
+
+  <div id="number-conversions" class="step" data-x="-1000" data-y="-1850">
+    <p>Conversion dogmas:</p>
+    <p>
+      <span class="tab-aligned"><span class="lit">value</span> | <span class="lit">0</span></span> <span class="comment">// => integer (32 bit signed)</span><br>
+      <span class="tab-aligned">+<span class="lit">value</span></span> <span class="comment">// => float or NaN</span>
+    </p>
+  </div>
+
+  <div id="strings" class="step" data-x="0" data-y="-2500">
+    <p>
+      <span class="lit">"I'm a string"</span><br>
+      <span class="lit">'This is also a string'</span>
+    </p>
+  </div>
+
+  <div id="unicode" class="step" data-x="0" data-y="-2330">
+    <p>
+      <span class="lit">'Man kan bruge Æ, Ø, Å og andre Unicode tegn'</span>
+    </p>
+  </div>
+
+  <div id="ascii-codes" class="step" data-x="0" data-y="-2100">
+    <p>
+      <span class="tab-aligned"><span class="lit">'A'</span>.<span class="func">charCodeAt</span>(<span class="lit">0</span>)</span> <span class="comment">// => 65</span><br>
+      <span class="tab-aligned">String.<span class="func">fromCharCode</span>(<span class="lit">65</span>)</span> <span class="comment">// => 'A'</span>
+    </p>
+  </div>
+
+  <div id="string-concatenation" class="step" data-x="0" data-y="-1830">
+    <p>String concatenation:</p>
+    <p><span class="lit">'The person named '</span> + name + <span class="lit">' is '</span> + age + <span class="lit">' years old.'</span></p>
+  </div>
+
+  <div id="string-conversions" class="step" data-x="0" data-y="-1570">
+    <p>Conversion dogmas:</p>
+    <p>
+      <span class="tab-aligned"><span class="lit">''</span> + value</span> <span class="comment">// => string</span><br>
+      <span class="tab-aligned"><span class="lit">''</span> + [value]</span> <span class="comment">// => null/undefined becomes empty string</span>
+    </p>
+  </div>
+
+  <div id="dates" class="step" data-x="1000" data-y="-2500">
+    <p>
+      <span class="comment">// ISO 8601 representation</span><br><span class="keyword">new</span> <span class="func">Date</span>(<span class="lit">'2014-05-07T13:37:50.458Z'</span>)<br>
+      <span class="comment">// milliseconds since 1970</span><br><span class="keyword">new</span> <span class="func">Date</span>(<span class="lit">1399469870458</span>)
+    </p>
+  </div>
+
+  <div id="now" class="step" data-x="1000" data-y="-2200">
+    <p><span class="keyword">new</span> <span class="func">Date</span>(); <span class="comment">// representing now</span></p>
+  </div>
+
+  <div id="extracting-date" class="step" data-x="1000" data-y="-1980">
+    <p>
+      <span class="tab-aligned">date.<span class="func">getFullYear</span>()</span> <span class="comment year">// 2014</span><br>
+      <span class="tab-aligned">date.<span class="func">getMonth</span>()</span> <span class="comment month">// 4 (May)</span><br>
+      <span class="tab-aligned">date.<span class="func">getDate</span>()</span> <span class="comment date">// 14</span>
+    </p>
+  </div>
+
+  <div id="date-conversions" class="step" data-x="1000" data-y="-1700">
+    <p>
+      <span class="tab-aligned">date.<span class="func">toISOString</span>()</span> <span class="comment iso">// '2014-05-14T02:00:00.000Z'</span><br>
+      <span class="tab-aligned">date.<span class="func">getTime</span>()</span> <span class="comment unix">// 1400032800000</span><br>
+      <span class="tab-aligned">date.<span class="func">toString</span>()</span> <span class="comment str">// 'Wed May 14 2014 04:00:00 GMT+0200 (CEST)'</span>
+    </p>
+  </div>
+
+  <div id="date-difference" class="step" data-x="1000" data-y="-1460">
+    <p><span class="comment">// Difference in milliseconds</span><br>futureDate - pastDate</p>
+  </div>
+
+  <div id="regexps" class="step" data-x="2000" data-y="-2500">
+    <p>
+      <span class="tab-aligned"><span class="lit">/^\w+$/</span>.<span class="func">test</span>(<span class="lit">'identifier'</span>)</span> <span class="comment">// => true</span><br>
+      <span class="tab-aligned"><span class="lit">/^\d+$/</span>.<span class="func">test</span>(<span class="lit">'42'</span>)</span> <span class="comment">// => true</span>
+    </p>
+  </div>
+
+  <div id="email-regexp" class="step" data-x="2000" data-y="-2250">
+    <p>
+      <span class="lit">'gulerod, grøntsag, rodfrugt'<span>.<span class="func">split</span>(<span class="lit">/\s*,\s*/</span>)<br>
+      <span class="comment">// => [ 'gulerod', 'grøntsag', 'rodfrugt' ]</span>
+    </p>
+  </div>
+
+  <div id="regexp-match" class="step" data-x="2000" data-y="-1870">
+    <p>
+      <span class="keyword">var</span> keyValue =<br>
+      <span class="indentation">  </span><span class="lit">'param=56'</span>.<span class="func">match</span>(<span class="lit">/(\w+)=(\d+)/</span>);<br>
+      <span class="keyword">if</span> (keyValue) {<br>
+      <span class="tab-aligned"><span class="indentation">  </span><span class="keyword">var</span> key = keyValue[<span class="lit">1</span>];</span> <span class="comment">// 'param'</span><br>
+      <span class="tab-aligned"><span class="indentation">  </span><span class="keyword">var</span> value = keyValue[<span class="lit">2</span>];</span> <span class="comment">// '56'</span><br>
+      }
+    </p>
+  </div>
+
+  <div id="values-2" class="step" data-x="500" data-y="-2200" data-scale="3"></div>
+
+  <div id="strict-equal" class="step" data-x="-650" data-y="-1600" data-scale="0.3">
+    <p class="equal">=== <b>vs.</b> ==</p>
+    <p class="nonequal">!== !=</p>
+    <p class="comment">strict non-strict</p>
+  </div>
+
+  <div id="null" class="step" data-x="-650" data-y="-1520" data-scale="0.3">
+    <p>null <b>vs.</b> undefined</p>
+  </div>
+
+  <div id="undefined-argument" class="step" data-x="-650" data-y="-1440" data-scale="0.3">
+    <p>
+      <span class="keyword">function</span> doSomething(arg) {<br>
+      <span class="indentation">  </span>if (arg !== undefined) {<br>
+      <span class="indentation">    </span><span class="comment">// arg is set</span><br>
+      <span class="indentation">  </span>}<br>
+      }
+    </p>
+  </div>
+
+  <div id="arrays-title" class="step" data-x="110" data-y="-4800" data-rotate="-90" data-scale="4">
+    <p>Arrays</p>
+  </div>
+
+  <div id="arrays" class="step" data-x="500" data-y="-3560" data-rotate="-90">
+    <p>
+      <span class="numbers">[ <span class="lit">1</span>, <span class="lit">2</span>, <span class="lit">3</span> ]</span><br>
+      <span class="strings">[ <span class="lit">'A'</span>, <span class="lit">'B'</span>, <span class="lit">'C'</span> ]</span>
+    </p>
+  </div>
+
+  <div id="mixed-arrays" class="step" data-x="650" data-y="-3560" data-rotate="-90">
+    <p>
+      [ <span class="lit">1</span>, <span class="lit">2</span>, <span class="lit">3.5</span>, <span class="lit">'x'</span>, <span class="lit">'y'</span> ]
+    </p>
+  </div>
+
+  <div id="arrays-operations" class="step" data-x="800" data-y="-3560" data-rotate="-90">
+    <p>
+      <span class="tab-aligned">arr.<span class="func">length</span></span> <span class="comment">// 5</span><br>
+      <span class="tab-aligned">arr[<span class="lit">2</span>]</span> <span class="comment">// 3.5</span>
+    </p>
+  </div>
+
+  <div id="arrays-slice" class="step" data-x="980" data-y="-3560" data-rotate="-90">
+    <p>
+      <span class="tab-aligned">arr.<span class="func">slice</span>(1, 3);</span> <span class="comment">// [ 2, 3.5 ]</span><br>
+      <span class="tab-aligned">arr.<span class="func">slice</span>(3);</span> <span class="comment">// [ 'x', 'y' ]</span>
+    </p>
+  </div>
+
+  <div id="arrays-push" class="step" data-x="1160" data-y="-3560" data-rotate="-90">
+    <p>
+      <span class="tab-aligned">arr.<span class="func">push</span>('z');</span> <span class="comment">// arr = [ 1, 2, 3.5, 'x', 'y', 'z' ]</span><br>
+      <span class="tab-aligned">arr.<span class="func">pop</span>();</span> <span class="comment">// 'z'</span>
+    </p>
+  </div>
+
+  <div id="arrays-shift" class="step" data-x="1340" data-y="-3560" data-rotate="-90">
+    <p>
+      <span class="tab-aligned">arr.<span class="func">unshift</span>(0);</span> <span class="comment">// arr = [ 0, 1, 2, 3.5, 'x', 'y' ]</span><br>
+      <span class="tab-aligned">arr.<span class="func">shift</span>();</span> <span class="comment">// 0</span>
+    </p>
+  </div>
+
+  <div id="arrays-foreach" class="step" data-x="1640" data-y="-3560" data-rotate="-90">
+    <p>
+      arr.<span class="func">forEach</span>(<span class="keyword">function</span>(element) {<br>
+      <span class="indentation">  </span><span class="comment">...</span><br>
+      });
+    </p>
+  </div>
+
+  <div id="arrays-map" class="step" data-x="1820" data-y="-3560" data-rotate="-90">
+    <p>
+      <span class="keyword">var</span> arr1 = arr.<span class="func">map</span>( mapFunction );
+    </p>
+  </div>
+
+  <div id="arrays-filter" class="step" data-x="1920" data-y="-3560" data-rotate="-90">
+    <p>
+      <span class="keyword">var</span> arr2 = arr.<span class="func">filter</span>( filterFunction );
+    </p>
+  </div>
+
+  <div id="arrays-concat" class="step" data-x="2020" data-y="-3560" data-rotate="-90">
+    <p>
+      <span class="keyword">var</span> arr3 = arr.<span class="func">concat</span>( otherArray );
+    </p>
+  </div>
+
+  <div id="arrays-sort" class="step" data-x="2250" data-y="-3560" data-rotate="-90">
+    <p>
+      <span class="comment">// Inplace sorting of arrays</span><br>
+      arr.<span class="func">sort</span>(<span class="keyword">function</span>(a, b) {<br>
+      <span class="indentation">  </span><span class="keyword">return</span> a.<span class="func">localeCompare</span>(b);<br>
+      });
+    </p>
+  </div>
+
+  <div id="sparse-arrays" class="step" data-x="2570" data-y="-3560" data-rotate="-90">
+    <p>Sparse arrays:</p>
+    <p>
+      <span class="keyword">new</span> <span class="func">Array</span>(size);<br>
+      arr.<span class="func">length</span> = <span class="lit">57</span>; <span class="comment">// set size of array</span>
+    </p>
+  </div>
+
+  <div id="objects-title" class="step" data-x="110" data-y="-5770" data-rotate="-90" data-scale="4">
+    <p>Objects</p>
+  </div>
+
+  <div id="objects" class="step" data-x="500" data-y="-4560" data-rotate="-90">
+    <p>
+      { name: <span class="lit">'Peter Petersen'</span>, age: <span class="lit">35</span> }<br>
+      { lat: <span class="lit">55.753362</span>, lng: <span class="lit">12.572932</span> }
+    </p>
+  </div>
+
+  <div id="complex-objects" class="step" data-x="1000" data-y="-4560" data-rotate="-90">
+    <span class="comment">// GeoJSON example</span><br>
+    {<br>
+    <span class="indentation">  </span>type: <span class="lit">'Feature'</span>,<br>
+    <span class="indentation">  </span>geometry: {<br>
+    <span class="indentation">    </span>type: <span class="lit">'Point'</span>,<br>
+    <span class="indentation">    </span>coordinates: [ <span class="lit">125.6</span>, <span class="lit">10.1</span> ]<br>
+    <span class="indentation">  </span>},<br>
+    <span class="indentation">  </span>properties: {<br>
+    <span class="indentation">    </span>name: <span class="lit">'Dinagat Islands'</span><br>
+    <span class="indentation">  </span>}<br>
+    }<br>
+  </div>
+
+  <div id="accessing-objects" class="step" data-x="1500" data-y="-4560" data-rotate="-90">
+    <p>
+      obj.geometry.coordinates[<span class="lit">1</span>] <span class="comment">// => 10.1</span>
+    </p>
+  </div>
+
+  <div id="maps" class="step" data-x="1720" data-y="-4560" data-rotate="-90">
+    <p>
+      <span class="keyword">var</span> map = {};<br>
+      map[<span class="lit">'a'</span>] = <span class="lit">1</span>;<br>
+      map[<span class="lit">'b'</span>] = <span class="lit">2</span>;
+    </p>
+  </div>
+
+  <div id="maps-delete-key" class="step" data-x="1900" data-y="-4560" data-rotate="-90">
+    <p>
+      <span class="keyword">delete</span> map[<span class="lit">'a'</span>];
+    </p>
+  </div>
+
+  <div id="maps-check-key" class="step" data-x="2050" data-y="-4560" data-rotate="-90">
+    <p>
+      <span class="tab-aligned"><span class="lit">'b'</span> <span class="keyword">in</span> map</span> <span class="comment">// true</span><br>
+      <span class="tab-aligned">map.<span class="func">hasOwnProperty</span>(<span class="lit">'b'</span>)</span> <span class="comment">// true</span>
+    </p>
+  </div>
+
+  <div id="functions-title" class="step" data-x="110" data-y="-6740" data-rotate="-90" data-scale="4">
+    <p>Functions</p>
+  </div>
+
+  <div id="functions" class="step" data-x="470" data-y="-5560" data-rotate="-90">
+    <p>
+      <span class="keyword">function</span>(a, b) { <span class="keyword">return</span> a + b; }
+    </p>
+  </div>
+
+  <div id="named-functions" class="step" data-x="770" data-y="-5560" data-rotate="-90">
+    <p>
+      <span class="keyword">function</span> logger(msg) {<br>
+      <span class="indentation">  </span>console.<span class="func">log</span>(<br>
+      <span class="indentation">    </span><span class="keyword">new</span> <span class="func">Date</span>().<span class="func">toISOString</span>() +<br>
+      <span class="indentation">    </span><span class="lit">' '</span> + msg.<span class="func">trim</span>()<br>
+      <span class="indentation">  </span>);<br>
+      }
+    </p>
+  </div>
+
+  <div id="function-invocation" class="step" data-x="1040" data-y="-5560" data-rotate="-90">
+    <p>
+      <span class="func">logger</span>(<span class="lit">'msg'</span>); <span class="comment">// => undefined</span>
+    </p>
+  </div>
+
+  <div id="nested-functions" class="step" data-x="1305" data-y="-5560" data-rotate="-90">
+    <p>
+      <span class="keyword">function</span> outer(arg1) {<br>
+      <span class="indentation">  </span><span class="keyword">function</span> inner(arg2) {<br>
+      <span class="indentation">    </span><span class="comment">...</span><br>
+      <span class="indentation">  </span>};<br>
+      }
+    </p>
+  </div>
+
+  <div id="jshint" class="step" data-x="2000" data-y="-5400" data-scale="0.5" data-rotate="152">
+    <p>JSHint your code!</p>
+  </div>
+
+  <div id="class-overview" class="step" data-x="4700" data-y="-4400" data-scale="5"></div>
+
+  <div id="classes-cartoon" class="step" data-x="4430" data-y="-4820" data-z="100" data-scale="1.2" data-rotate="-10">
+    <img src="images/class.png">
+    <div style="position: absolute; top: 80px; padding-left: 30px;">Have<br><span style="padding-left: 20px;">some</span><br><span style="padding-left: 40px;"><b>class</b></span></div>
+  </div>
+
+  <div id="classes" class="step slide" data-x="3800" data-y="-5300" data-scale="2">
+    <h2>Classes</h2>
+  </div>
+
+  <div id="constructor" class="step" data-x="3400" data-y="-5700">
+    <p>
+      <span class="comment">// Constructor</span><br>
+      <span class="keyword">function</span> VideoStream(url) {<br>
+      <span class="indentation">  </span><span class="keyword">this</span>.url = url; <span class="comment">// property</span><br>
+      }
+    </p>
+  </div>
+
+  <div id="method1" class="step" data-x="3400" data-y="-5300">
+    <p>
+      <span class="comment">// Methods</span><br>
+      VideoStream.prototype.load =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() {<br>
+      <span class="indentation">    </span><span class="comment">...</span><br>
+      <span class="indentation">  </span>};
+    </p>
+  </div>
+
+  <div id="method2" class="step" data-x="3400" data-y="-4900">
+    <p>
+      VideoStream.prototype.play =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() {<br>
+      <span class="indentation">    </span><span class="comment">...</span><br>
+      <span class="indentation">  </span>};
+    </p>
+  </div>
+
+  <div id="instantiation" class="step" data-x="4200" data-y="-5665">
+    <p>
+      <span class="keyword">var</span> video = <span class="keyword">new</span> <span class="func">VideoStream</span>(<br>
+      <span class="indentation">  </span><span class="lit">'https://example.com/introvid.m3u8'</span><br>
+      );
+    </p>
+  </div>
+
+  <div id="get-property" class="step" data-x="4200" data-y="-5450">
+    <p>
+      video.url <span class="comment">// 'https://example.com/introvid.m3u8'</span><br>
+    </p>
+  </div>
+
+  <div id="invoke-method" class="step" data-x="4200" data-y="-5300">
+    <p>
+      video.<span class="func">load</span>(); <span class="comment">// invokes method</span><br>
+    </p>
+  </div>
+
+  <div id="instance-of" class="step" data-x="4200" data-y="-5150">
+    <p>
+      video instanceof VideoStream <span class="comment">// true</span>
+    </p>
+  </div>
+
+  <div id="extend-your-base" class="step" data-x="5200" data-y="-4550" data-scale="2">
+    <p>Extend <b>your</b> base!</p>
+  </div>
+
+  <div id="extend-backbonejs-title" class="step slide" data-x="5700" data-y="-5300" data-scale="2">
+    <h2>Extend in BackboneJS</h2>
+  </div>
+
+  <div id="extend-backbonejs-base" class="step" data-x="5300" data-y="-5500">
+    <p>
+      <span class="keyword">var</span> BaseClass =<br>
+      <span class="indentation">  </span>Backbone.Model.<span class="func">extend</span>({<br>
+      <span class="indentation">    </span>method1: <span class="keyword">function</span>() { <span class="comment">...</span> },<br>
+      <span class="indentation">    </span>method2: <span class="keyword">function</span>() { <span class="comment">...</span> }<br>
+      <span class="indentation">  </span>});
+    </p>
+  </div>
+
+  <div id="extend-backbonejs-sub" class="step" data-x="6200" data-y="-5540">
+    <p>
+      <span class="keyword">var</span> SubClass = BaseClass.<span class="func">extend</span>({<br>
+      <span class="indentation">  </span>method1: <span class="keyword">function</span>() { <span class="comment">...</span> },<br>
+      <span class="indentation">  </span>anotherMethod: <span class="keyword">function</span>() { <span class="comment">...</span> }<br>
+      });
+    </p>
+  </div>
+
+  <div id="extend-backbonejs-test" class="step" data-x="5700" data-y="-5100">
+    <p>
+      <span class="comment">// Both true</span><br>
+      <span class="keyword">new</span> <span class="func">BaseClass</span>() instanceof BaseClass<br>
+      <span class="keyword">new</span> <span class="func">SubClass</span>() instanceof BaseClass
+    </p>
+  </div>
+
+  <div id="extend-nodejs" class="step slide" data-x="5700" data-y="-3800" data-scale="2">
+    <h2>Extend in NodeJS</h2>
+  </div>
+
+  <div id="extend-nodejs-base" class="step" data-x="5300" data-y="-4000">
+    <p>
+      <span class="keyword">function</span> BaseClass() {}<br>
+      BaseClass.prototype.method1 =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() { <span class="comment">...</span> };<br>
+      BaseClass.prototype.method2 =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() { <span class="comment">...</span> };
+    </p>
+  </div>
+
+  <div id="extend-nodejs-sub" class="step" data-x="6150" data-y="-4070">
+    <p>
+      <span class="comment">// Extend</span><br>
+      <span class="keyword">function</span> SubClass() {<br>
+      <span class="indentation">  </span>BaseClass.<span class="func">call</span>(<span class="keyword">this</span>);<br>
+      }<br>
+      util.<span class="func">inherits</span>(SubClass, BaseClass);
+    </p>
+  </div>
+
+  <div id="extend-nodejs-override" class="step" data-x="6150" data-y="-3670">
+    <p>
+      <span class="comment">// Override or add more methods</span><br>
+      SubClass.prototype.method1 =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() { <span class="comment">...</span> };<br>
+      SubClass.prototype.anotherMethod =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() { <span class="comment">...</span> };
+    </p>
+  </div>
+
+  <div id="extend-nodejs-test" class="step" data-x="5700" data-y="-3300">
+    <p>
+      <span class="comment">// Both true</span><br>
+      <span class="keyword">new</span> <span class="func">BaseClass</span>() instanceof BaseClass<br>
+      <span class="keyword">new</span> <span class="func">SubClass</span>() instanceof BaseClass
+    </p>
+  </div>
+
+  <div id="extend-prototypal" class="step slide" data-x="3800" data-y="-3800" data-scale="2">
+    <h2>Prototypal inheritance</h2>
+  </div>
+
+  <div id="extend-prototypal-base" class="step" data-x="3400" data-y="-4035">
+    <p>
+      <span class="keyword">function</span> BaseClass() {}<br>
+      BaseClass.prototype.method1 =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() { <span class="comment">...</span> };<br>
+      BaseClass.prototype.method2 =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() { <span class="comment">...</span> };
+    </p>
+  </div>
+
+  <div id="extend-prototypal-sub" class="step" data-x="4250" data-y="-4070">
+    <p>
+      <span class="comment">// Extend</span><br>
+      <span class="keyword">function</span> SubClass() {<br>
+      <span class="indentation">  </span>BaseClass.<span class="func">call</span>(<span class="keyword">this</span>, arguments);<br>
+      }<br>
+      SubClass.prototype =<br>
+      <span class="indentation">  </span><span class="keyword">new</span> <span class="func">BaseClass</span>();
+    </p>
+  </div>
+
+  <div id="extend-prototypal-override" class="step" data-x="4250" data-y="-3640">
+    <p>
+      <span class="comment">// Override or add more methods</span><br>
+      SubClass.prototype.method1 =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() { <span class="comment">...</span> };<br>
+      SubClass.prototype.anotherMethod =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() { <span class="comment">...</span> };
+    </p>
+  </div>
+
+  <div id="extend-prototypal-test" class="step" data-x="3800" data-y="-3300">
+    <p>
+      <span class="comment">// Both true</span><br>
+      <span class="keyword">new</span> <span class="func">BaseClass</span>() instanceof BaseClass<br>
+      <span class="keyword">new</span> <span class="func">SubClass</span>() instanceof BaseClass
+    </p>
+  </div>
+
+  <div id="class-overview-2" class="step" data-x="4700" data-y="-4400" data-scale="5">
+  </div>
+
+  <div id="lets-scope-it" class="step" data-x="3200" data-y="-2050" data-scale="2" data-rotate="-90">
+    <p style="text-align: center;">Let's<br><b>scope</b><br>it</p>
+  </div>
+
+  <div id="scopes-example" class="step" data-x="3350" data-y="-2800" data-scale="0.9" data-rotate="-80">
+    <p>
+      <span class="keyword">function</span> func1() {<br>
+      <span class="indentation">  </span><span class="keyword">var</span> a, b; <span class="comment">// scope 1</span><br>
+      <br>
+      <span class="indentation">  </span><span class="keyword">function</span> func2() {<br>
+      <span class="indentation">    </span><span class="keyword">var</span> c; <span class="comment">// scope 2</span><br>
+      <span class="indentation">  </span>}<br>
+      }
+    </p>
+  </div>
+
+  <div id="bound-variables" class="step slide" data-x="4400" data-y="-2050" data-scale="2" data-rotate="-90">
+    <h2>Bound variables</h2>
+  </div>
+
+  <div id="for-loop-issue" class="step" data-x="4150" data-y="-1650" data-rotate="-90">
+    <p>
+      <span class="comment">// Issue: When the inner function executes i=5</span><br>
+      for (<span class="keyword">var</span> i = <span class="lit">1</span>; i &lt;= <span class="lit">5</span>; i++) {<br>
+      <span class="indentation">  </span>setTimeout(<span class="keyword">function</span>() {<br>
+      <span class="indentation">    </span>console.<span class="func">log</span>(i); <span class="comment">// prints 5 five times</span><br>
+      <span class="indentation">  </span>}, <span class="lit">100</span>);<br>
+      }
+    </p>
+  </div>
+
+  <div id="for-loop-fix1" class="step" data-x="4680" data-y="-1650" data-rotate="-90">
+    <p>
+      <span class="comment">// Use setTimeout in newer browsers and NodeJS</span><br>
+      for (<span class="keyword">var</span> i = <span class="lit">1</span>; i &lt;= <span class="lit">5</span>; i++) {<br>
+      <span class="indentation">  </span>setTimeout(<span class="keyword">function</span>(i) {<br>
+      <span class="indentation">    </span>console.<span class="func">log</span>(i); <span class="comment">// prints 1, 2, 3, 4, 5</span><br>
+      <span class="indentation">  </span>}, <span class="lit">100</span>, i);<br>
+      }
+    </p>
+  </div>
+
+  <div id="for-loop-fix2" class="step" data-x="4150" data-y="-2500" data-rotate="-90">
+    <p>
+      <span class="comment">// Use Lo-dash/Underscore to implement delay</span><br>
+      for (<span class="keyword">var</span> i = <span class="lit">1</span>; i &lt;= <span class="lit">5</span>; i++) {<br>
+      <span class="indentation">  </span>_.<span class="func">delay</span>(<span class="keyword">function</span>(i) {<br>
+      <span class="indentation">    </span>console.<span class="func">log</span>(i); <span class="comment">// prints 1, 2, 3, 4, 5</span><br>
+      <span class="indentation">  </span>}, <span class="lit">100</span>, i);<br>
+      }
+    </p>
+  </div>
+
+  <div id="for-loop-fix3" class="step" data-x="4750" data-y="-2500" data-rotate="-90">
+    <p>
+      <span class="comment">// Create closure to dynamically bind variable</span><br>
+      for (<span class="keyword">var</span> i = <span class="lit">1</span>; i &lt;= <span class="lit">5</span>; i++) {<br>
+      <span class="indentation">  </span>(<span class="keyword">function</span>(i) {<br>
+      <span class="indentation">    </span>setTimeout(<span class="keyword">function</span>() {<br>
+      <span class="indentation">      </span>console.<span class="func">log</span>(i); <span class="comment">// prints 1, 2, 3, 4, 5</span><br>
+      <span class="indentation">    </span>}, <span class="lit">100</span>);<br>
+      <span class="indentation">  </span>}(i));<br>
+      }
+    </p>
+  </div>
+
+  <div id="closures-title" class="step slide" data-x="5900" data-y="-2050" data-scale="2" data-rotate="-90">
+    <h2>Closures</h2>
+  </div>
+
+  <div id="closures" class="step" data-x="5600" data-y="-1650" data-scale="1" data-rotate="-90">
+    <p>
+      <span class="comment">// Copy variable (reference)</span><br>
+      (<span class="keyword">function</span>(window, undefined) {<br>
+      <span class="indentation">  </span><span class="comment">...</span><br>
+      }(window));
+    </p>
+  </div>
+
+  <div id="step-function-1" class="step" data-x="5743" data-y="-2500" data-scale="1" data-rotate="-90">
+    <p>
+      <span class="keyword">var</span> originalImage;<br>
+      <br>
+      step([<br>
+      <span class="indentation">  </span><span class="keyword">function</span>(next) {<br>
+      <span class="indentation">    </span>loadImage(filename, next);<br>
+      <span class="indentation">  </span>},
+    </p>
+  </div>
+
+  <div id="step-function-2" class="step" data-x="6246" data-y="-2500" data-scale="1" data-rotate="-90">
+    <p>
+      <span class="indentation">  </span><span class="keyword">function</span>(image, next) {<br>
+      <span class="indentation">    </span>originalImage = image;<br>
+      <span class="indentation">    </span>resampleImage(image, next);<br>
+      <span class="indentation">  </span>},<br>
+      <span class="indentation">  </span><span class="keyword">function</span>(scaledImage, next) {<br>
+      <span class="indentation">    </span><span class="comment">// We can access both originalImage and scaledImage</span><br>
+      <span class="indentation">  </span>}<br>
+      ]);
+    </p>
+  </div>
+
+  <div id="this-is-powerful-and-crazy" class="step" data-x="3000" data-y="-700" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+    <p><b>this</b> is powerful and crazy</p>
+  </div>
+
+  <div id="this-in-functions" class="step slide" data-x="2800" data-y="-750" data-z="-100" data-rotate-x="-70" data-rotate-y="8" data-scale="1">
+    <p><b>this</b> in functions</p>
+  </div>
+
+  <div id="class-this" class="step" data-x="2800" data-y="-740" data-z="-100" data-rotate-x="-70" data-rotate-y="8" data-scale="1">
+    <p style="-webkit-transform: scale(0.4) translate(700px,-430px);">
+      <span class="keyword">function</span> Person(name) {<br>
+      <span class="indentation">  </span><span class="keyword">this</span>.name = name;<br>
+      }<br>
+      <br>
+      Person.prototype.sayHello =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() {<br>
+      <span class="indentation">    </span>console.<span class="func">log</span>(<br>
+      <span class="indentation">      </span><span class="keyword">this</span>.name + <span class="lit">' says hello!'</span><br>
+      <span class="indentation">    </span>);<br>
+      <span class="indentation">  </span>}
+    </p>
+  </div>
+
+  <div id="global-this" class="step" data-x="2800" data-y="-730" data-z="-100" data-rotate-x="-70" data-rotate-y="8" data-scale="1">
+    <p style="-webkit-transform: scale(0.6) translate(-250px,280px);">
+      <span class="keyword">function</span> foo() {<br>
+      <span class="indentation">  </span><span class="comment">// this is the global object:</span><br>
+      <span class="indentation">  </span><span class="comment">// window in browsers, global in NodeJS</span><br>
+      }
+    </p>
+  </div>
+
+  <div id="use-strict" class="step" data-x="2800" data-y="-720" data-z="-100" data-rotate-x="-70" data-rotate-y="8" data-scale="1">
+    <p style="-webkit-transform: scale(0.6) translate(400px,305px);">
+      <span class="keyword">function</span> foo() {<br>
+      <span class="indentation">  </span><span class="lit">'use strict'</span>;<br>
+      <span class="indentation">  </span><span class="comment">// this is undefined</span><br>
+      }
+    </p>
+  </div>
+
+  <div id="when-is-this-set" class="step slide" data-x="3600" data-y="-600" data-z="-100" data-rotate-x="-60" data-rotate-y="-30" data-scale="1">
+    <h2>When is <b>this</b> set?</h2>
+  </div>
+
+  <div id="this-set-for-methods" class="step" data-x="3600" data-y="-590" data-z="-100" data-rotate-x="-60" data-rotate-y="-30" data-scale="1">
+    <p style="-webkit-transform: scale(0.8) translate(0px,-150px);">
+      <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="func">Person</span>(<span class="lit">'Mads'</span>);<br>
+      <span class="comment">// sayHello is invoked with <b>this</b> equalling p</span><br>
+      p.<span class="func">sayHello</span>();
+    </p>
+  </div>
+
+  <div id="this-set-for-global-functions" class="step" data-x="3600" data-y="-580" data-z="-100" data-rotate-x="-60" data-rotate-y="-30" data-scale="1">
+    <p style="-webkit-transform: scale(0.8) translate(0px,100px);">
+      <span class="comment">// <b>this</b> is set to global object or undefined in 'use strict' context</span><br>
+      <span class="func">globalFunc</span>();
+    </p>
+  </div>
+
+  <div id="this-chains" class="step" data-x="3600" data-y="-570" data-z="-100" data-rotate-x="-60" data-rotate-y="-30" data-scale="1">
+    <p style="-webkit-transform: scale(0.8) translate(0px,300px);">
+      <span class="comment">// You can have chains, it's always the last value that is used</span><br>
+      db.users[3].auth.password.<span class="func">reset</span>();
+    </p>
+  </div>
+
+  <div id="binding-this" class="step slide" data-x="4400" data-y="-440" data-z="-50" data-rotate-x="-70" data-rotate-y="0" data-scale="1">
+    <h2>Binding <b>this</b></h2>
+  </div>
+
+  <div id="binding-this-oldschool" class="step" data-x="4400" data-y="-430" data-z="-50" data-rotate-x="-70" data-rotate-y="0" data-scale="1">
+    <p style="-webkit-transform: scale(0.4) translate(-400px,-100px);">
+      <span class="comment">// Old-school way of binding this in the scope manually</span><br>
+      Person.prototype.sayHello =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() {<br>
+      <span class="indentation">    </span><span class="keyword">var</span> self = <span class="keyword">this</span>;<br>
+      <span class="indentation">    </span>setTimeout(<span class="keyword">function</span>() {<br>
+      <span class="indentation">      </span>console.<span class="func">log</span>(self.name);<br>
+      <span class="indentation">    </span>}, <span class="lit">100</span>);<br>
+      <span class="indentation">  </span>}
+    </p>
+  </div>
+
+  <div id="binding-this-native" class="step" data-x="4400" data-y="-420" data-z="-50" data-rotate-x="-70" data-rotate-y="0" data-scale="1">
+    <p style="-webkit-transform: scale(0.4) translate(700px,0px);">
+      <span class="comment">// Use native JavaScript bind to do the same</span><br>
+      Person.prototype.sayHello =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() {<br>
+      <span class="indentation">    </span>setTimeout(<span class="keyword">function</span>() {<br>
+      <span class="indentation">      </span>console.<span class="func">log</span>(<span class="keyword">this</span>.name);<br>
+      <span class="indentation">    </span>}.<span class="func">bind</span>(<span class="keyword">this</span>), <span class="lit">100</span>);<br>
+      <span class="indentation">  </span>}
+    </p>
+  </div>
+
+  <div id="binding-this-underscore" class="step" data-x="4400" data-y="-410" data-z="-50" data-rotate-x="-70" data-rotate-y="0" data-scale="1">
+    <p style="-webkit-transform: scale(0.4) translate(-100px,500px);">
+      <span class="comment">// Use Lo-Dash/Underscore to do the same</span><br>
+      Person.prototype.sayHello =<br>
+      <span class="indentation">  </span><span class="keyword">function</span>() {<br>
+      <span class="indentation">    </span>setTimeout(_.<span class="func">bind</span>(<span class="keyword">function</span>() {<br>
+      <span class="indentation">      </span>console.<span class="func">log</span>(<span class="keyword">this</span>.name);<br>
+      <span class="indentation">    </span>}, <span class="keyword">this</span>), <span class="lit">100</span>);<br>
+      <span class="indentation">  </span>}
+    </p>
+  </div>
+
+  <div id="questions" class="step" data-x="3000" data-y="900" data-scale="10">
+    <p>Thanks!</p>
+  </div>
+
+  <div id="overview" class="step" data-x="3000" data-y="-2500" data-rotate-x="10" data-scale="10">
+  </div>
+
+</div>
+
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/impress.js"></script>
+<script>
+  impress().init();
+
+  $(document).ready(function() {
+    var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var date = new Date();
+    $('#extracting-date .year').text('// ' + date.getFullYear());
+    $('#extracting-date .month').text('// ' + date.getMonth() + ' (' + monthNames[date.getMonth()] + ')');
+    $('#extracting-date .date').text('// ' + date.getDate());
+
+    var liveDateConversions = null;
+
+    function updateLiveDateConversions() {
+      var date = new Date();
+      $('#date-conversions .iso').text('// \'' + date.toISOString() + '\'');
+      $('#date-conversions .str').text('// \'' + date.toString() + '\'');
+      $('#date-conversions .unix').text('// ' + date.getTime());
+    }
+    updateLiveDateConversions();
+
+    function startLiveDateConversions() {
+      if (liveDateConversions) return;
+      liveDateConversions = setInterval(updateLiveDateConversions, 50);
+    }
+
+    function stopLiveDateConversions() {
+      if (!liveDateConversions) return;
+      clearInterval(liveDateConversions);
+      liveDateConversions = null;
+    }
+
+    $(document).on('impress:stepenter', function(event) {
+      var currentSlide = $(event.target).attr('id');
+
+      if (currentSlide === 'date-conversions') {
+        startLiveDateConversions();
+      }
+    });
+
+    $(document).on('impress:stepleave', function(event) {
+      var currentSlide = $(event.target).attr('id');
+
+      if (currentSlide === 'date-conversions') {
+        stopLiveDateConversions();
+      } else if (currentSlide === 'dates') {
+        updateLiveDateConversions();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
